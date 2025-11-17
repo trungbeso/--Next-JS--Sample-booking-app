@@ -11,7 +11,7 @@ export interface EventAttrs {
   image: string;
   venue: string;
   location: string;
-  date: string; // Stored as normalized ISO date string
+  date: string; // Stored as a normalized ISO date string
   time: string; // Stored as normalized HH:MM (24h) string
   mode: string;
   audience: string;
