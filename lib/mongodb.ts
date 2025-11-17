@@ -60,6 +60,10 @@ export async function connectToDatabase(): Promise<typeof mongoose> {
     cached.promise = mongoose.connect(MONGODB_URI as string, options).then((mongooseInstance) => {
       return mongooseInstance;
     });
+
+    if (!MONGODB_URI) {
+        throw new Error('Please define the MONGODB_URI environment variable inside .env');
+    }
   }
 
   // Wait for the connection promise to resolve and cache the resolved connection.
