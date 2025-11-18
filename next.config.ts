@@ -5,24 +5,28 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "res.cloudinary.com"
-      }
-    ]
+        hostname: "res.cloudinary.com",
+      },
+    ],
+  },
+
+  experimental: {
+    cacheComponents: true,
   },
 
   async rewrites() {
     return [
       {
         source: "/ingest/static/:path*",
-        destination: "https://us-assets.i.posthog.com/static/:path*"
+        destination: "https://us-assets.i.posthog.com/static/:path*",
       },
       {
         source: "/ingest/:path*",
-        destination: "https://us.i.posthog.com/:path*"
-      }
+        destination: "https://us.i.posthog.com/:path*",
+      },
     ];
   },
-  skipTrailingSlashRedirect: true
+  skipTrailingSlashRedirect: true,
 };
 
 export default nextConfig;
